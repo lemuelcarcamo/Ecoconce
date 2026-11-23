@@ -36,7 +36,6 @@
     background: rgba(255, 255, 255, 0.05); border-radius: 50%; pointer-events: none;
   }
   
-  /* Animación de movimiento flotante para el logo */
   .brand-svg { 
     width: 72px; height: 72px; margin: 0 auto 10px; display: block; 
     animation: flotarLogo 3s ease-in-out infinite; 
@@ -57,7 +56,6 @@
     margin-top: 14px; color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3);
     backdrop-filter: blur(4px);
   }
-  /* Animación de pulso verde en vivo */
   .dot { width: 9px; height: 9px; background: #34d399; border-radius: 50%; animation: pulsoVerde 1.4s infinite; }
   @keyframes pulsoVerde { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.6); } }
 
@@ -80,7 +78,6 @@
 
   .container { max-width: 800px; margin: 24px auto; padding: 0 16px; }
   
-  /* Animación de desvanecimiento suave (fade-in) al cambiar de pestaña */
   .tab-pane { display: none; animation: fadeInPane 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
   .tab-pane.active { display: block; }
   @keyframes fadeInPane { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
@@ -118,14 +115,15 @@
   .btn:hover { background: #047857; transform: translateY(-1px); }
   .btn:active { transform: translateY(1px); }
   .btn-dark { background: var(--dark); box-shadow: 0 4px 15px rgba(15, 23, 42, 0.25); }
-  .btn-outline { background: #f8fafc; color: var(--dark); border: 1.5px solid #cbd5e1; }
+  .btn-outline { background: #f8fafc; color: var(--dark); border: 1.5px solid #cbd5e1; box-shadow: none; }
+  .btn-outline:hover { background: var(--primary-light); border-color: var(--primary); color: var(--primary-dark); }
   .btn-whatsapp { 
     background: #25d366; color: #fff; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 12px;
     padding: 16px; border-radius: 14px; font-weight: 800; margin-top: 16px; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
     transition: transform 0.2s; font-size: 1.05rem;
   }
   .btn-whatsapp:hover { transform: scale(1.02); background: #22bf5b; }
-  .btn-sm { width: auto; padding: 7px 14px; font-size: 0.84rem; margin-top: 6px; }
+  .btn-sm { width: auto; padding: 8px 14px; font-size: 0.84rem; margin-top: 10px; display: inline-block; }
 
   .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; align-items: center; }
   .pill {
@@ -150,10 +148,10 @@
 
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 10px; }
-  .box-item { background: #f8fafc; border: 1.5px solid #e2e8f0; padding: 16px; border-radius: 14px; transition: transform 0.2s; }
-  .box-item:hover { border-color: var(--primary); transform: translateX(3px); }
+  .box-item { background: #f8fafc; border: 1.5px solid #e2e8f0; padding: 16px; border-radius: 14px; transition: transform 0.2s; display: flex; flex-direction: column; justify-content: space-between; }
+  .box-item:hover { border-color: var(--primary); transform: translateY(-2px); }
 
-  .badge { background: var(--primary-light); color: var(--primary-dark); font-size: 0.76rem; font-weight: 800; padding: 4px 10px; border-radius: 10px; }
+  .badge { background: var(--primary-light); color: var(--primary-dark); font-size: 0.76rem; font-weight: 800; padding: 4px 10px; border-radius: 10px; display: inline-block; width: fit-content; }
 
   .lock-box { text-align: center; padding: 24px 12px; }
   .pin-input { text-align: center; font-size: 1.6rem; font-weight: 800; letter-spacing: 10px; max-width: 260px; margin: 14px auto; display: block; }
@@ -179,12 +177,12 @@
 </header>
 
 <nav class="nav-bar">
-  <button class="nav-btn active" onclick="openTab('tab-rastreo', this)">🔍 Seguimiento</button>
-  <button class="nav-btn" onclick="openTab('tab-cotizar', this)">📦 Cotizador Exprés</button>
-  <button class="nav-btn" onclick="openTab('tab-sucursales', this)">⚡ Hubs y Cobertura</button>
-  <button class="nav-btn" onclick="openTab('tab-pyme', this)">🏷️ Convenios PyME</button>
-  <button class="nav-btn" onclick="openTab('tab-soporte', this)">💬 Soporte (+569)</button>
-  <button class="nav-btn" onclick="openTab('tab-admin', this)">🛵 Portal Repartidor</button>
+  <button type="button" class="nav-btn active" onclick="openTab('tab-rastreo', this)">🔍 Seguimiento</button>
+  <button type="button" class="nav-btn" onclick="openTab('tab-cotizar', this)">📦 Cotizador Exprés</button>
+  <button type="button" class="nav-btn" onclick="openTab('tab-sucursales', this)">⚡ Hubs y Cobertura</button>
+  <button type="button" class="nav-btn" onclick="openTab('tab-pyme', this)">🏷️ Convenios PyME</button>
+  <button type="button" class="nav-btn" onclick="openTab('tab-soporte', this)">💬 Soporte (+569)</button>
+  <button type="button" class="nav-btn" onclick="openTab('tab-admin', this)">🛵 Portal Repartidor</button>
 </nav>
 
 <div class="container">
@@ -202,8 +200,8 @@
 
       <label>Ingrese Código de Seguimiento</label>
       <div style="display:flex; gap:10px; margin-top:6px;">
-        <input type="text" id="trackInput" placeholder="Ej: ECO-101" style="text-transform:uppercase; font-weight:800; letter-spacing:1px;">
-        <button class="btn" style="margin-top:0; width:160px;" onclick="buscarOrden()">Buscar</button>
+        <input type="text" id="trackInput" placeholder="Ej: ECO-101" style="text-transform:uppercase; font-weight:800; letter-spacing:1px;" onkeyup="if(event.key==='Enter') buscarOrden()">
+        <button type="button" class="btn" style="margin-top:0; width:160px;" onclick="buscarOrden()">Buscar</button>
       </div>
 
       <div class="pills">
@@ -224,7 +222,7 @@
         <div class="card-ico">📦</div>
         <div>
           <h2>Cotizador de Envíos Gran Concepción</h2>
-          <span>Tarifa Única: $2.750 CLP a cualquier comuna[cite: 3] • Caja Estándar Gratis ($0)[cite: 3]</span>
+          <span>Tarifa Única: $2.750 CLP a cualquier comuna • Caja Estándar Gratis ($0)</span>
         </div>
       </div>
 
@@ -232,15 +230,23 @@
         <div>
           <label>Comuna de Origen</label>
           <select id="oriSel" onchange="calcPrecio()">
-            <option>Concepción Centro</option><option>Hualpén</option><option>Talcahuano</option>
-            <option>San Pedro de la Paz</option><option>Chiguayante</option><option>Penco</option>
+            <option value="Concepción Centro">Concepción Centro</option>
+            <option value="Hualpén">Hualpén</option>
+            <option value="Talcahuano">Talcahuano</option>
+            <option value="San Pedro de la Paz">San Pedro de la Paz</option>
+            <option value="Chiguayante">Chiguayante</option>
+            <option value="Penco">Penco</option>
           </select>
         </div>
         <div>
           <label>Comuna de Destino</label>
           <select id="desSel" onchange="calcPrecio()">
-            <option>Concepción Centro</option><option>Hualpén</option><option>Talcahuano</option>
-            <option>San Pedro de la Paz</option><option>Chiguayante</option><option>Penco</option>
+            <option value="Concepción Centro">Concepción Centro</option>
+            <option value="Hualpén">Hualpén</option>
+            <option value="Talcahuano">Talcahuano</option>
+            <option value="San Pedro de la Paz">San Pedro de la Paz</option>
+            <option value="Chiguayante">Chiguayante</option>
+            <option value="Penco">Penco</option>
           </select>
         </div>
       </div>
@@ -249,12 +255,12 @@
         <div>
           <label>Tipo de Empaque / Caja</label>
           <select id="tamSel" onchange="calcPrecio()">
-            <option value="0">📦 Caja Estándar Reforzada (GRATIS $0)[cite: 3]</option>
-            <option value="0">✉️ Sobre Documento (GRATIS $0)[cite: 3]</option>
+            <option value="Caja Estándar Reforzada">📦 Caja Estándar Reforzada (GRATIS $0)</option>
+            <option value="Sobre Documento">✉️ Sobre Documento (GRATIS $0)</option>
           </select>
         </div>
         <div>
-          <label>Bolsas Reciclables ($250 c/u)[cite: 3]</label>
+          <label>Bolsas Reciclables ($250 c/u)</label>
           <select id="bolsasSel" onchange="calcPrecio()">
             <option value="0">0 bolsas ($0)</option>
             <option value="1">1 bolsa (+$250)</option>
@@ -285,7 +291,7 @@
 
       <div id="cotOut" class="res-box"></div>
 
-      <button class="btn" onclick="generarOrden()">✅ Generar Orden de Envío y Etiqueta</button>
+      <button type="button" class="btn" onclick="generarOrden()">✅ Generar Orden de Envío y Etiqueta</button>
       <div id="ordenCreadaOut"></div>
     </div>
   </section>
@@ -303,24 +309,36 @@
 
       <div class="grid-2">
         <div class="box-item">
-          <span class="badge">Hub Principal</span>
-          <h3 style="margin:6px 0; color:var(--primary-dark);">Concepción Centro</h3>
-          <p style="font-size:0.85rem; color:var(--slate);">Dirección: Barros Arana 645<br>Horario: Lunes a Sábado 09:00 - 19:00 hrs.<br><b>2 Triciclos operativos</b></p>
+          <div>
+            <span class="badge">Hub Principal</span>
+            <h3 style="margin:6px 0; color:var(--primary-dark);">Concepción Centro</h3>
+            <p style="font-size:0.85rem; color:var(--slate);">Dirección: Barros Arana 645<br>Horario: Lunes a Sábado 09:00 - 19:00 hrs.<br><b>2 Triciclos operativos</b></p>
+          </div>
+          <button type="button" class="btn btn-outline btn-sm" onclick="usarHubEnCotizador('Concepción Centro')">Cotizar desde aquí →</button>
         </div>
         <div class="box-item">
-          <span class="badge">Hub Zona Norte</span>
-          <h3 style="margin:6px 0; color:var(--primary-dark);">Mall Plaza Trébol (Hualpén)</h3>
-          <p style="font-size:0.85rem; color:var(--slate);">Dirección: Av. Jorge Alessandri 3177<br>Horario: Lunes a Domingo 10:00 - 20:00 hrs.<br><b>2 Triciclos operativos</b></p>
+          <div>
+            <span class="badge">Hub Zona Norte</span>
+            <h3 style="margin:6px 0; color:var(--primary-dark);">Mall Plaza Trébol (Hualpén)</h3>
+            <p style="font-size:0.85rem; color:var(--slate);">Dirección: Av. Jorge Alessandri 3177<br>Horario: Lunes a Domingo 10:00 - 20:00 hrs.<br><b>2 Triciclos operativos</b></p>
+          </div>
+          <button type="button" class="btn btn-outline btn-sm" onclick="usarHubEnCotizador('Hualpén')">Cotizar desde aquí →</button>
         </div>
         <div class="box-item">
-          <span class="badge">Hub Zona Sur</span>
-          <h3 style="margin:6px 0; color:var(--primary-dark);">Laguna Grande (San Pedro)</h3>
-          <p style="font-size:0.85rem; color:var(--slate);">Dirección: Av. Pedro Aguirre Cerda 1050<br>Horario: Lunes a Sábado 09:30 - 18:30 hrs.<br><b>1 Triciclo operativo</b></p>
+          <div>
+            <span class="badge">Hub Zona Sur</span>
+            <h3 style="margin:6px 0; color:var(--primary-dark);">Laguna Grande (San Pedro)</h3>
+            <p style="font-size:0.85rem; color:var(--slate);">Dirección: Av. Pedro Aguirre Cerda 1050<br>Horario: Lunes a Sábado 09:30 - 18:30 hrs.<br><b>1 Triciclo operativo</b></p>
+          </div>
+          <button type="button" class="btn btn-outline btn-sm" onclick="usarHubEnCotizador('San Pedro de la Paz')">Cotizar desde aquí →</button>
         </div>
         <div class="box-item">
-          <span class="badge">Cobertura Total</span>
-          <h3 style="margin:6px 0; color:var(--primary-dark);">Intercomunal</h3>
-          <p style="font-size:0.85rem; color:var(--slate);">Cobertura completa en Chiguayante, Penco, Talcahuano, Hualpén y San Pedro de la Paz con tarifa única de $2.750[cite: 3].</p>
+          <div>
+            <span class="badge">Cobertura Total</span>
+            <h3 style="margin:6px 0; color:var(--primary-dark);">Intercomunal</h3>
+            <p style="font-size:0.85rem; color:var(--slate);">Cobertura completa en Chiguayante, Penco, Talcahuano, Hualpén y San Pedro de la Paz con tarifa única de $2.750.</p>
+          </div>
+          <button type="button" class="btn btn-sm" onclick="usarHubEnCotizador('Concepción Centro')">Programar retiro →</button>
         </div>
       </div>
     </div>
@@ -333,25 +351,34 @@
         <div class="card-ico">🏷️</div>
         <div>
           <h2>Convenios Comerciales para PyMEs</h2>
-          <span>Optimiza tus despachos diarios con tarifas preferenciales y cajas gratis[cite: 3]</span>
+          <span>Optimiza tus despachos diarios con tarifas preferenciales y cajas gratis</span>
         </div>
       </div>
 
       <div class="grid-3">
         <div class="box-item">
-          <span class="badge">Plan Emprende</span>
-          <h3 style="margin:6px 0; color:var(--primary-dark);">$2.550 <small style="font-size:0.75rem;">/envío</small></h3>
-          <p style="font-size:0.8rem; color:var(--slate);">Desde 15 envíos al mes. Incluye caja gratis[cite: 3] y retiro en tienda.</p>
+          <div>
+            <span class="badge">Plan Emprende</span>
+            <h3 style="margin:6px 0; color:var(--primary-dark);">$2.550 <small style="font-size:0.75rem;">/envío</small></h3>
+            <p style="font-size:0.8rem; color:var(--slate);">Desde 15 envíos al mes. Incluye caja gratis y retiro en tienda.</p>
+          </div>
+          <a href="https://wa.me/56929324655?text=Hola%20Eco%20Conce,%20me%20interesa%20activar%20el%20Plan%20Emprende%20($2.550/envío)" target="_blank" class="btn btn-outline btn-sm" style="text-align:center; text-decoration:none;">Solicitar Plan</a>
         </div>
         <div class="box-item" style="border-color:var(--primary); background:#f0fdf4;">
-          <span class="badge">Plan PyME Pro</span>
-          <h3 style="margin:6px 0; color:var(--primary-dark);">$2.290 <small style="font-size:0.75rem;">/envío</small></h3>
-          <p style="font-size:0.8rem; color:var(--slate);">Desde 50 envíos al mes. Prioridad en ruta + 10 bolsas reciclables gratis[cite: 3].</p>
+          <div>
+            <span class="badge">Plan PyME Pro</span>
+            <h3 style="margin:6px 0; color:var(--primary-dark);">$2.290 <small style="font-size:0.75rem;">/envío</small></h3>
+            <p style="font-size:0.8rem; color:var(--slate);">Desde 50 envíos al mes. Prioridad en ruta + 10 bolsas reciclables gratis.</p>
+          </div>
+          <a href="https://wa.me/56929324655?text=Hola%20Eco%20Conce,%20me%20interesa%20activar%20el%20Plan%20PyME%20Pro%20($2.290/envío)" target="_blank" class="btn btn-sm" style="text-align:center; text-decoration:none;">Solicitar Plan</a>
         </div>
         <div class="box-item">
-          <span class="badge">Plan Full Comercio</span>
-          <h3 style="margin:6px 0; color:var(--primary-dark);">$1.990 <small style="font-size:0.75rem;">/envío</small></h3>
-          <p style="font-size:0.8rem; color:var(--slate);">+120 envíos mensuales. Triciclo eléctrico dedicado por ruta exclusiva.</p>
+          <div>
+            <span class="badge">Plan Full Comercio</span>
+            <h3 style="margin:6px 0; color:var(--primary-dark);">$1.990 <small style="font-size:0.75rem;">/envío</small></h3>
+            <p style="font-size:0.8rem; color:var(--slate);">+120 envíos mensuales. Triciclo eléctrico dedicado por ruta exclusiva.</p>
+          </div>
+          <a href="https://wa.me/56929324655?text=Hola%20Eco%20Conce,%20me%20interesa%20activar%20el%20Plan%20Full%20Comercio%20($1.990/envío)" target="_blank" class="btn btn-outline btn-sm" style="text-align:center; text-decoration:none;">Solicitar Plan</a>
         </div>
       </div>
     </div>
@@ -366,12 +393,12 @@
       
       <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; padding: 20px 28px; border-radius: 16px; display: inline-block; margin-bottom: 14px;">
         <span style="font-size: 0.8rem; font-weight: 800; color: var(--slate); text-transform: uppercase; display: block; margin-bottom: 4px;">Línea Oficial / WhatsApp</span>
-        <strong style="font-size: 1.65rem; color: var(--primary-dark); letter-spacing: 0.5px;">+56 9 2932 4655</strong>[cite: 3]
+        <strong style="font-size: 1.65rem; color: var(--primary-dark); letter-spacing: 0.5px;">+56 9 2932 4655</strong>
       </div>
 
       <a href="https://wa.me/56929324655?text=Hola,%20necesito%20soporte%20con%20un%20envío%20en%20Eco%20Conce" target="_blank" class="btn-whatsapp">
         <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.148-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-        Abrir Chat de WhatsApp Directo (+56 9 2932 4655)[cite: 3]
+        Abrir Chat de WhatsApp Directo (+56 9 2932 4655)
       </a>
     </div>
   </section>
@@ -383,27 +410,27 @@
         <div class="card-ico">🛵</div>
         <div>
           <h2>Área Exclusiva Repartidores</h2>
-          <span>Panel operativo protegido por código de trabajador[cite: 3]</span>
+          <span>Panel operativo protegido por código de trabajador</span>
         </div>
       </div>
 
       <div id="workerLoginBox" class="lock-box">
         <div style="font-size:2.8rem; margin-bottom:10px;">🔒</div>
         <strong style="font-size:1.15rem; color:var(--dark);">Acceso Restringido al Personal</strong>
-        <p style="font-size:0.88rem; color:var(--slate); margin-top:4px;">Ingresa el código de trabajador (<b>23023</b>)[cite: 3] para gestionar rutas.</p>
+        <p style="font-size:0.88rem; color:var(--slate); margin-top:4px;">Ingresa el código de trabajador (<b>23023</b>) para gestionar rutas.</p>
         <input type="password" id="workerPinInput" class="pin-input" maxlength="5" inputmode="numeric" placeholder="•••••" onkeyup="if(event.key==='Enter') verificarTrabajador()">
-        <button class="btn" style="max-width:260px;" onclick="verificarTrabajador()">Desbloquear Panel</button>
+        <button type="button" class="btn" style="max-width:260px;" onclick="verificarTrabajador()">Desbloquear Panel</button>
         <div id="pinError" style="color:#dc2626; font-size:0.86rem; font-weight:700; margin-top:12px;"></div>
       </div>
 
       <div id="workerPanelBox" style="display:none;">
         <div style="display:flex; justify-content:space-between; align-items:center; background:#ecfdf5; padding:14px 16px; border-radius:14px; margin-bottom:16px; border:1.5px solid #a7f3d0;">
-          <span style="font-size:0.86rem; font-weight:800; color:var(--primary-dark);">✅ Sesión autorizada: Trabajador #23023[cite: 3]</span>
+          <span style="font-size:0.86rem; font-weight:800; color:var(--primary-dark);">✅ Sesión autorizada: Trabajador #23023</span>
           <button type="button" class="btn btn-outline btn-sm" style="margin-top:0;" onclick="cerrarSesionTrabajador()">Bloquear</button>
         </div>
 
         <div id="adminList"></div>
-        <button class="btn btn-dark" onclick="resetOrders()" style="margin-top:18px;">Restaurar Pedidos de Ejemplo</button>
+        <button type="button" class="btn btn-dark" onclick="resetOrders()" style="margin-top:18px;">Restaurar Pedidos de Ejemplo</button>
       </div>
     </div>
   </section>
@@ -411,12 +438,12 @@
 </div>
 
 <footer>
-  Eco Conce SpA • Logística Sustentable • Concepción, Hualpén, Talcahuano, San Pedro, Chiguayante y Penco • 2026[cite: 3]
+  Eco Conce SpA • Logística Sustentable • Concepción, Hualpén, Talcahuano, San Pedro, Chiguayante y Penco • 2026
 </footer>
 
 <script>
   const KEY = 'ecoconce_allinone_v14';
-  const CODIGO_TRABAJADOR = '23023';[cite: 3]
+  const CODIGO_TRABAJADOR = '23023';
   let trabajadorAutorizado = false;
 
   const baseOrders = [
@@ -424,21 +451,21 @@
       code: 'ECO-101', rem: 'Tostaduría Biobío', rec: 'Valentina Muñoz',
       orig: 'Concepción Centro', dest: 'Hualpén', dir: 'Av. Gran Bretaña 4120',
       status: 'En triciclo eléctrico', piloto: 'Diego Valdés (Trike #04)',
-      co2: '1.65 kg', eta: '18 min', empaque: 'Caja Gratis + 1 Bolsa Reciclable',[cite: 3]
+      co2: '1.65 kg', eta: '18 min', empaque: 'Caja Gratis + 1 Bolsa Reciclable',
       logs: ['09:15 - Retirado en Hub Concepción Centro', '09:28 - En tránsito por ciclovía Av. Colón']
     },
     {
       code: 'ECO-202', rem: 'Librería UdeC', rec: 'Sebastián Paredes',
       orig: 'Concepción Centro', dest: 'San Pedro de la Paz', dir: 'Michimalonco 1150',
       status: 'Entregado', piloto: 'Carla Morales (Trike #05)',
-      co2: '1.50 kg', eta: 'Entregado', empaque: 'Caja Gratis',[cite: 3]
+      co2: '1.50 kg', eta: 'Entregado', empaque: 'Caja Gratis',
       logs: ['10:05 - Retirado en Barrio Universitario', '10:22 - Cruzando ciclovía Puente Llacolén', '10:41 - Entregado en conserjería']
     },
     {
       code: 'ECO-303', rem: 'Huerto Chiguayante', rec: 'Almacén El Faro',
       orig: 'Chiguayante', dest: 'Talcahuano', dir: 'Colón 540',
       status: 'En preparación', piloto: 'Matías Rojas (Trike #02)',
-      co2: '3.10 kg', eta: '55 min', empaque: 'Caja Gratis + 2 Bolsas Reciclables',[cite: 3]
+      co2: '3.10 kg', eta: '55 min', empaque: 'Caja Gratis + 2 Bolsas Reciclables',
       logs: ['11:10 - Orden ingresada y asignada a Hub Chiguayante']
     }
   ];
@@ -471,16 +498,23 @@
     }
   }
 
+  function usarHubEnCotizador(comuna) {
+    const cotBtn = document.querySelectorAll('.nav-btn')[1];
+    openTab('tab-cotizar', cotBtn);
+    document.getElementById('oriSel').value = comuna;
+    calcPrecio();
+  }
+
   function verificarTrabajador() {
     const pin = document.getElementById('workerPinInput').value.trim();
     const err = document.getElementById('pinError');
-    if (pin === CODIGO_TRABAJADOR) {[cite: 3]
+    if (pin === CODIGO_TRABAJADOR) {
       trabajadorAutorizado = true;
       err.textContent = '';
       document.getElementById('workerPinInput').value = '';
       actualizarVistaRepartidor();
     } else {
-      err.textContent = '❌ Código incorrecto. Utiliza 23023.';[cite: 3]
+      err.textContent = '❌ Código incorrecto. Utiliza 23023.';
       document.getElementById('workerPinInput').value = '';
     }
   }
@@ -537,7 +571,7 @@
           <div><b>Recibe:</b> ${item.rec}</div>
           <div><b>Dirección:</b> ${item.dir}</div>
           <div><b>Vehículo:</b> ${item.piloto}</div>
-          <div><b>Empaque:</b> ${item.empaque || 'Caja Gratis'}</div>[cite: 3]
+          <div><b>Empaque:</b> ${item.empaque || 'Caja Gratis'}</div>
         </div>
         <div style="background:#dcfce7; padding:10px 14px; border-radius:10px; font-size:0.86rem; font-weight:700; color:var(--primary-dark);">
           🌱 Impacto positivo: ${item.co2} de CO₂ evitados frente a furgón diésel
@@ -549,16 +583,17 @@
 
   function calcPrecio() {
     const cantBolsas = parseInt(document.getElementById('bolsasSel').value, 10) || 0;
+    const tipoCaja = document.getElementById('tamSel').value;
     
-    const baseEnvio = 2750;[cite: 3]
-    const costoBolsas = cantBolsas * 250;[cite: 3]
+    const baseEnvio = 2750;
+    const costoBolsas = cantBolsas * 250;
     const total = baseEnvio + costoBolsas;
 
     document.getElementById('cotOut').innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
         <div>
-          <span style="font-size:0.84rem; color:var(--slate);">Envío Único Gran Concepción: <b>$2.750</b> • Caja: <b>GRATIS ($0)</b></span><br>[cite: 3]
-          <span style="font-size:0.84rem; color:var(--slate);">Bolsas reciclables (${cantBolsas} × $250): <b>$${costoBolsas.toLocaleString('es-CL')} CLP</b></span><br>[cite: 3]
+          <span style="font-size:0.84rem; color:var(--slate);">Envío Único Gran Concepción: <b>$2.750</b> • ${tipoCaja}: <b>GRATIS ($0)</b></span><br>
+          <span style="font-size:0.84rem; color:var(--slate);">Bolsas reciclables (${cantBolsas} × $250): <b>$${costoBolsas.toLocaleString('es-CL')} CLP</b></span><br>
           <strong style="font-size:1.45rem; color:var(--primary-dark);">Total: $${total.toLocaleString('es-CL')} CLP</strong>
         </div>
         <div style="text-align:right; font-size:0.85rem;">
@@ -575,6 +610,7 @@
     const dir = document.getElementById('dirInput').value.trim();
     const nota = document.getElementById('notaInput').value.trim();
     const cantBolsas = parseInt(document.getElementById('bolsasSel').value, 10) || 0;
+    const tipoCaja = document.getElementById('tamSel').value;
 
     if (!rec || !dir) {
       alert('Por favor ingresa el nombre del destinatario y la dirección exacta.');
@@ -587,7 +623,7 @@
     const code = 'ECO-' + (400 + list.length + 1);
     const co2 = '1.65 kg';
     const hora = new Date().toTimeString().slice(0, 5);
-    const detalleEmpaque = cantBolsas > 0 ? `Caja Gratis + ${cantBolsas} Bolsa(s) Reciclable(s)` : 'Caja Gratis ($0)';[cite: 3]
+    const detalleEmpaque = cantBolsas > 0 ? `${tipoCaja} Gratis + ${cantBolsas} Bolsa(s) Reciclable(s)` : `${tipoCaja} Gratis ($0)`;
 
     list.unshift({
       code: code, rem: rem, rec: rec, orig: o, dest: d, dir: dir,
@@ -601,7 +637,7 @@
     document.getElementById('ordenCreadaOut').innerHTML = `
       <div class="res-box">
         ✅ ¡Orden generada con éxito! Código asignado: <b>${code}</b><br>
-        <button class="btn btn-sm" onclick="irARastreo('${code}')">Ver en Seguimiento Satelital →</button>
+        <button type="button" class="btn btn-sm" onclick="irARastreo('${code}')">Ver en Seguimiento Satelital →</button>
       </div>
     `;
 
@@ -631,7 +667,7 @@
           <span class="badge">${item.status}</span>
         </div>
         <div style="font-size:0.85rem; color:var(--slate); margin:6px 0 10px;">
-          Para: <b>${item.rec}</b> • ${item.dir} • <i>${item.empaque || 'Caja Gratis'}</i>[cite: 3]
+          Para: <b>${item.rec}</b> • ${item.dir} • <i>${item.empaque || 'Caja Gratis'}</i>
         </div>
         <select onchange="cambiarEstado(${idx}, this.value)">
           <option ${item.status === 'En preparación' ? 'selected' : ''}>En preparación</option>
